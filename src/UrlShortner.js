@@ -1,6 +1,5 @@
 import React from 'react'
 import Nav from './Nav'
-import UrlResults from './UrlResults'
 import Form from './form';
 import './App.css';
 
@@ -10,7 +9,6 @@ function UrlShortner() {
             <Nav />
             <div className='main'>
                 <Form />
-                <UrlResults />
             </div>
         </div>
     )

@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 
 export default function Form() {
     const [text, setText] = useState("");
+    const [links, setLinks] = useState("")
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -25,24 +26,52 @@ export default function Form() {
     }
 
     return (
-        <form className='form'
-            onSubmit={handleSubmit}>
-            <label htmlFor='input'>Link Shortener</label>
-            <div>
-                <input id='input'
-                    type='url'
-                    placeholder='Enter your URL...'
-                    value={text}
-                    onChange={(e) => setText(e.target.value)}
-                />
-                <span className="error-txt">Please add a valid link</span>
-                <button type='submit'
-                    onClick={handleSubmit}
-                >Shorten it!</button>
+        <>
+
+            <form className='form'
+                onSubmit={handleSubmit}>
+                <label htmlFor='input'>Link Shortener</label>
+                <div>
+                    <input id='input'
+                        type='url'
+                        placeholder='Enter your URL...'
+                        value={text}
+                        onChange={(e) => setText(e.target.value)}
+                    />
+                    <span className="error-txt">Please add a valid link</span>
+                    <button type='submit'
+                        onClick={handleSubmit}
+                    >Shorten it!</button>
+                </div>
+                <p>With this free Link Shortener you can make Links shorter and easier to remember.
+                    Just enter a Link into the form and click on the above Button to generate a short Link.
+                    When visiting the short-Link, the short-Link will immediately redirect you to the long Link.</p>
+            </form>
+            <div className='short-url-results'>
+                <ul>
+                    <li className='result'>
+                        <span className='long-link'>{links.original_link}</span>
+                        <div className='divider'>
+                            <span className='short-link'>Short-Link</span>
+                            <button className='copy-btn'>Copy</button>
+                        </div>
+                    </li>
+                    <li className='result'>
+                        <span className='long-link'>{links.original_link}</span>
+                        <div className='divider'>
+                            <span className='short-link'>Short-Link</span>
+                            <button className='copy-btn'>Copy</button>
+                        </div>
+                    </li>
+                    <li className='result'>
+                        <span className='long-link'>{links.original_link}</span>
+                        <div className='divider'>
+                            <span className='short-link'>Short-Link</span>
+                            <button className='copy-btn'>Copy</button>
+                        </div>
+                    </li>
+                </ul>
             </div>
-            <p>With this free Link Shortener you can make Links shorter and easier to remember.
-                Just enter a Link into the form and click on the above Button to generate a short Link.
-                When visiting the short-Link, the short-Link will immediately redirect you to the long Link.</p>
-        </form>
+        </>
     )
 }
