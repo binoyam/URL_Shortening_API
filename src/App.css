@@ -1,0 +1,203 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500&display=swap');
+
+:root {
+  --Blue: hsl(246, 80%, 60%);
+  --Light-orange: hsl(15, 100%, 70%);
+  --Soft-blue: hsl(195, 74%, 62%);
+  --Light-red: hsl(348, 100%, 68%);
+  --Lime-green: hsl(145, 58%, 55%);
+  --Violet: hsl(264, 64%, 52%);
+  --Soft-orange: hsl(43, 84%, 65%);
+  --Very-dark-blue: hsl(226, 43%, 10%);
+  --Dark-blue: hsl(235, 46%, 20%);
+  --Desaturated-blue: hsl(235, 45%, 61%);
+  --Pale-Blue: hsl(236, 100%, 87%);
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-size: 18px;
+  font-family: 'Rubik', sans-serif;
+}
+
+ul {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+}
+
+.app {
+  width: 100%;
+  height: 100vh;
+  background-color: var(--Very-dark-blue);
+}
+
+.nav-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 2rem 0;
+}
+
+.nav-bar .menu {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.menu li {
+  color: var(--Pale-Blue);
+  padding: 5px;
+  cursor: pointer;
+}
+
+.menu li:hover {
+  color: white;
+}
+
+.main {
+  margin: 0 auto;
+  width: 70%;
+  background-color: white;
+  margin-top: 5rem;
+  padding: 2rem;
+  border-radius: 20px;
+  position: relative;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+.error-txt{
+  display: none;
+  position: absolute;
+  color: red;
+  font-style: italic;
+  font-size: 16px;
+  top: 80px;
+  left: 0;
+}
+.form label {
+  font-size: 25px;
+  font-weight: 500;
+  color: black;
+  margin-bottom: 5px;
+}
+
+.form div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.form input,
+.form button {
+  border: none;
+  outline: none;
+  padding: 10px;
+  border-radius: 10px;
+  font-size: 16px;
+}
+
+.form input {
+  width: 70%;
+  background-color: rgb(231, 231, 231);
+}
+.form input.error{
+  border: 2px solid red;
+}
+.form input:focus {
+  outline: 1px solid black;
+}
+
+.form button {
+  width: 28%;
+  font-weight: 700;
+  background-color: var(--Soft-orange);
+  color: rgb(0, 0, 0);
+  cursor: pointer;
+}
+
+.form button:hover {
+  color: white;
+  background-color: var(--Very-dark-blue);
+}
+
+.form p {
+  font-size: 16px;
+  margin-top: 30px;
+  line-height: 1.4;
+}
+
+.short-url-results {
+  position: absolute;
+  bottom: 0;
+}
+
+.short-url-results {
+  position: absolute;
+  bottom: -120%;
+  left: 0;
+  width: 100%;
+}
+
+.short-url-results ul {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+li.result {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem;
+  background-color: rgb(255, 255, 255);
+  border-radius: 15px;
+}
+
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.long-link {
+  color: var(--Very-dark-blue);
+  font-weight: 500;
+
+}
+
+.short-link {
+  font-weight: bold;
+  color: var(--Soft-blue);
+}
+
+.copy-btn {
+  border: none;
+  outline: none;
+  border-radius: 7px;
+  font-size: 16px;
+  font-weight: bold;
+  width: 120px;
+  padding: 8px 5px;
+  background-color: aquamarine;
+  color: black;
+  cursor: pointer;
+}
+
+.copy-btn:hover {
+  background-color: var(--Very-dark-blue);
+  color: white;
+}
