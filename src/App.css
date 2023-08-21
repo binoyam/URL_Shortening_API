@@ -35,19 +35,16 @@ img {
 
 .app {
   width: 100%;
-  min-height: 200vh;
+  min-height: 100vh;
   background-color: var(--Very-dark-blue);
 }
 
-/* .container{
-  height: auto;
-} */
 .nav-bar {
   display: flex;
   align-items: center;
   justify-content: center;
   width: 100%;
-  padding: 2rem 0;
+  padding: 1rem 0;
 }
 
 .nav-bar .menu {
@@ -56,21 +53,21 @@ img {
   gap: 2rem;
 }
 
-.menu li {
+.menu li a {
+  text-decoration: none;
   color: var(--Pale-Blue);
   padding: 5px;
-  cursor: pointer;
 }
 
-.menu li:hover {
+.menu li a:hover {
   color: white;
 }
 
 .main {
   margin: 0 auto;
-  width: 70%;
+  width: 60%;
   background-color: white;
-  margin-top: 5rem;
+  margin-top: 1rem;
   padding: 2rem;
   border-radius: 20px;
   position: relative;
@@ -142,8 +139,16 @@ img {
 
 .form p {
   font-size: 16px;
-  margin-top: 30px;
+  margin-top: 20px;
   line-height: 1.4;
+}
+
+.form p .instruction-one {
+  display: block;
+}
+
+.form p .instruction-two {
+  display: none;
 }
 
 .short-url-results {
@@ -157,7 +162,7 @@ img {
 }
 
 .short-url-results.show-links {
-  bottom: -120%;
+  bottom: -210px;
   display: block;
   opacity: 1;
 }
@@ -173,9 +178,10 @@ li.result {
   align-items: center;
   justify-content: space-between;
   gap: 0.5rem;
-  padding: 1rem;
+  padding: 0.5rem 1rem;
   background-color: rgb(255, 255, 255);
   border-radius: 15px;
+  max-height: 50px;
 }
 
 .divider {
@@ -185,14 +191,15 @@ li.result {
 }
 
 .long-link {
-  color: var(--Very-dark-blue);
+  color: rgba(0, 0, 0, 0.747);
   font-size: 14px;
-  line-height: 1;
-  max-height: 40px;
+  text-decoration: line-through;
 }
 
 .short-link {
+  font-size: 16px;
   color: var(--Soft-blue);
+  text-decoration: underline;
 }
 
 .copy-btn {
@@ -215,4 +222,103 @@ li.result {
 .copy-btn:focus {
   color: white;
   background-color: var(--Very-dark-blue);
+}
+
+@media only screen and (max-width:970px) {
+  .main {
+    width: 80%;
+  }
+
+  .error-txt {
+    font-size: 14px;
+    top: 76px;
+  }
+}
+
+@media only screen and (max-width:610px) {
+  .main {
+    width: 90%;
+    padding: 1.2rem;
+  }
+
+  .form label {
+    font-size: 20px;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+
+  .form input,
+  .form button {
+    padding: 7px;
+    border-radius: 7px;
+    font-size: 14px;
+  }
+
+  .error-txt {
+    font-size: 13px;
+    top: 68px;
+  }
+
+  .form p {
+    font-size: 14px;
+    margin-top: 14px;
+  }
+
+  .short-url-results.show-links {
+    bottom: -180px;
+  }
+
+  .short-url-results ul {
+    gap: 0.7rem;
+  }
+
+  .long-link {
+    line-height: 0.8;
+  }
+
+  .divider {
+    gap: 0.5rem;
+  }
+
+  .copy-btn {
+    font-size: 14px;
+    width: 60px;
+  }
+
+  .short-link {
+    font-size: 15px;
+  }
+}
+
+@media only screen and (max-width:500px) {
+  .menu li a {
+    font-size: 16px;
+  }
+
+  .main {
+    margin: 0;
+    width: 100%;
+    border-radius: 0;
+    padding: 1rem;
+  }
+
+  li.result {
+    border-radius: 0;
+    padding: 0.5rem 0.4rem;
+    max-height: 45px;
+  }
+
+  .divider {
+    gap: 0.3rem;
+  }
+
+  .copy-btn {
+    font-size: 14px;
+    width: 60px;
+  }
+
+  .short-link {
+    font-size: 14px;
+    font-weight: 500;
+  }
 }
