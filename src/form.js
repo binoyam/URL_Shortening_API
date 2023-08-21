@@ -2,8 +2,7 @@ import React, { useState } from 'react'
 
 export default function Form() {
     const [text, setText] = useState("");
-    const [links, setLinks] = useState("")
-    const [buttonTxt, setButtonText] = useState("Copy")
+    const [links, setLinks] = useState("");
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -30,17 +29,25 @@ export default function Form() {
             shortenLink()
         }
     }
-    const handleCopy = (buttonId) => {
-        navigator.clipboard.writeText(links.full_short_link)
-        if(buttonId === 'button1'){
-            setButtonText("Copied!")
-        }
-        else if(buttonId === 'button2'){
-            setButtonText("Copied!")
-        }
-       else if(buttonId === 'button3'){
-            setButtonText("Copied!")
-        }
+    const handleCopy = () => {
+        const copyBtns = document.querySelectorAll(".copy-btn");
+        copyBtns.forEach(copyBtn => {
+            copyBtn.addEventListener('click', () => {
+                if (copyBtn.id === 'button1') {
+                    navigator.clipboard.writeText(links.short_link)
+                    copyBtn.innerText = 'Copied!'
+                }
+                else if (copyBtn.id === 'button2') {
+                    navigator.clipboard.writeText(links.short_link2)
+                    copyBtn.innerText = 'Copied!'
+                }
+                else if (copyBtn.id === 'button3') {
+                    navigator.clipboard.writeText(links.short_link3)
+                    copyBtn.innerText = 'Copied!'
+                }
+            })
+        })
+
     }
 
     return (
@@ -65,33 +72,34 @@ export default function Form() {
                     Just enter a Link into the form and click on the above Button to generate a short Link.
                     When visiting the short-Link, the short-Link will immediately redirect you to the long Link.</p>
             </form>
+            
             <div className='short-url-results'>
                 <ul>
                     <li className='result'>
                         <span className='long-link'>{links.original_link}</span>
                         <div className='divider'>
                             <span className='short-link'>{links.short_link}</span>
-                            <button id='button1' 
-                            onClick={() => handleCopy('button1')}
-                                className='copy-btn'>{buttonTxt === 'Copied!' ? 'Copied!' : 'Copy'}</button>
+                            <button id='button1'
+                                onClick={handleCopy}
+                                className='copy-btn'>Copy</button>
                         </div>
                     </li>
                     <li className='result'>
                         <span className='long-link'>{links.original_link}</span>
                         <div className='divider'>
                             <span className='short-link'>{links.short_link2}</span>
-                            <button id='button2' 
-                            onClick={() => handleCopy('button2')}
-                                className='copy-btn'>{buttonTxt === 'Copied!' ? 'Copied!' : 'Copy'}</button>
+                            <button id='button2'
+                                onClick={handleCopy}
+                                className='copy-btn'>Copy</button>
                         </div>
                     </li>
                     <li className='result'>
                         <span className='long-link'>{links.original_link}</span>
                         <div className='divider'>
                             <span className='short-link'>{links.short_link3}</span>
-                            <button id='button3' 
-                            onClick={() => handleCopy('button3')}
-                                className='copy-btn'>{buttonTxt === 'Copied!' ? 'Copied!' : 'Copy'}</button>
+                            <button id='button3'
+                                onClick={handleCopy}
+                                className='copy-btn'>Copy</button>
                         </div>
                     </li>
                 </ul>
