@@ -29,7 +29,7 @@ export default function Form() {
             const shortenLink = async () => {
                 const res = await fetch(`https://api.shrtco.de/v2/shorten?url=${text}`)
                 const data = await res.json()
-                console.log(data.result)
+                // console.log(data.result)
                 setLinks(data.result)
                 setText("")
             }
@@ -40,16 +40,17 @@ export default function Form() {
     const handleCopy = () => {
 
         const copyBtns = document.querySelectorAll(".copy-btn");
-
         copyBtns.forEach(copyBtn => {
             copyBtn.addEventListener('click', () => {
-                copyBtn.innerText = 'Copy'
+                copyBtn.classList.remove("active")
+
                 if (copyBtn.id === 'button1') {
                     copyBtn.innerText = 'Copied!'
                     navigator.clipboard.writeText(links.short_link)
                 }
                 else if (copyBtn.id === 'button2') {
                     copyBtn.innerText = 'Copied!'
+
                     navigator.clipboard.writeText(links.short_link2)
                 }
                 else if (copyBtn.id === 'button3') {
@@ -58,7 +59,6 @@ export default function Form() {
                 }
             })
         })
-
     }
 
     return (
