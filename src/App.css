@@ -191,9 +191,12 @@ li.result {
 }
 
 .long-link {
+  width: 60%;
   color: rgba(0, 0, 0, 0.747);
   font-size: 14px;
+  line-height: 0.8;
   text-decoration: line-through;
+  overflow: hidden;
 }
 
 .short-link {

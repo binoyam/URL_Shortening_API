@@ -36,6 +36,7 @@ export default function Form() {
             shortenLink()
         }
     }
+
     const handleCopy = () => {
 
         const copyBtns = document.querySelectorAll(".copy-btn");
